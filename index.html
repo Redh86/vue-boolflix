@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/master.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script> 
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="find" @keypress.enter="srch">
+        <button></button>
+        <div v-for="element in movies">
+            <h1>{{element.title}}</h1>
+            <h1>{{element.original_title}}</h1>
+            <h1>{{element.original_language}}</h1>
+            <h1>{{element.vote_average}}</h1>
+        </div>
+        
+    </div>
+    
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

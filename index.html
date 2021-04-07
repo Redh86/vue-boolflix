@@ -12,13 +12,12 @@
     <div id="app">
         <input type="text" v-model="find" @keypress.enter="srch">
         <button></button>
-        <div v-for="element in movies">
-            <h1>{{element.title}}</h1>
-            <h1>{{element.original_title}}</h1>
-            <h1>{{element.original_language}}</h1>
-            <h1>{{element.vote_average}}</h1>
-        </div>
-        
+            <div v-for="element in moviesTv">
+                <h1>{{element.title}} {{element.name}}</h1>
+                <h1>{{element.original_title}}</h1>
+                <h1>{{element.original_language}}</h1>
+                <h1>{{element.vote_average}}</h1>
+            </div>        
     </div>
     
 

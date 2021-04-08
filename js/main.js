@@ -4,7 +4,7 @@ var app = new Vue ({
         moviesTv: [],
         find: "",
         
-    },
+    },//chiusuradata
     methods: {
         srch() {
             axios
@@ -17,11 +17,17 @@ var app = new Vue ({
                 .get("https://api.themoviedb.org/3/search/tv?api_key=14c79cb15a17f3680279c4003fdc0fdc&query=" + this.find)
                 .then((result) => {                                    
                     this.moviesTv = this.moviesTv.concat(result.data.results);      
-                });
-            this.moviesTv.forEach(element => {
-                element.vote_average = Math.ceil(parseInt(element.vote_average) / 2);
-                element.poster_path = ("https://image.tmdb.org/t/p/w300" + element.poster_path);
-            });    
-        }
-    } 
-})
+                });  
+        },
+        starVote(vote){
+            return parseInt(vote / 2);
+        },
+        poster(post){
+            return ("https://image.tmdb.org/t/p/w300" + post);
+        },
+        flag(lang){
+            return "img/" + lang + ".png";
+        },
+        
+    } //chiusuramethods          
+}) //chiusura vue

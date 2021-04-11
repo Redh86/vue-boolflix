@@ -10,19 +10,30 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="find" @keypress.enter="srch">
-        <button></button>
-            <div v-for="element in moviesTv">
-                <img :src="poster(element.poster_path)" alt="">
-                <h1>{{element.title}} {{element.name}}</h1>
-                <h1>{{element.original_title}}</h1>
-                <img :src="flag(element.original_language)" alt="">
-                <div class="star">
-                    <i v-for="i in starVote(element.vote_average)" class="fas fa-star"></i>
-                    <i v-for="i in (5 - starVote(element.vote_average))" class="far fa-star"></i>
+        <header>
+            <img src="img/boolflix.png" alt="">
+            <div class="search_bar">
+                <input type="text" v-model="find" @keypress.enter="srch">
+                <button v-on:click="srch"><i class="fas fa-search"></i></button>  
+            </div>
+              
+        </header>
+        <main>
+            <div class="media" v-for="element in moviesTv">
+                <img class="pos" :src="poster(element.poster_path)" alt="">
+                <div class="hide">
+                    <h1>{{element.title}} {{element.name}}</h1>
+                    <h3>{{element.original_title}}</h3>
+                    <img class="ban" :src="flag(element.original_language)" alt="">
+                    <div class="star">
+                        <i v-for="i in starVote(element.vote_average)" class="fas fa-star"></i>
+                        <i v-for="i in (5 - starVote(element.vote_average))" class="far fa-star"></i>
+                    </div>   
                 </div>
-                
+             
             </div>        
+        </main>
+            
     </div>
     
 

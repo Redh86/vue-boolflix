@@ -7,17 +7,28 @@ var app = new Vue ({
     },//chiusuradata
     methods: {
         srch() {
-            axios
-                .get("https://api.themoviedb.org/3/search/movie?api_key=14c79cb15a17f3680279c4003fdc0fdc&query=" + this.find)
-                .then((result) => {       
+            moviesTv = "",
+            axios.get("https://api.themoviedb.org/3/search/movie", {
+                params: {
+                    api_key : "14c79cb15a17f3680279c4003fdc0fdc",
+                    language : "it",
+                    query : this.find,
+                }
+            })
+            .then((result) => {       
                     this.moviesTv = this.moviesTv.concat(result.data.results);  
                 });
-                            
-            axios
-                .get("https://api.themoviedb.org/3/search/tv?api_key=14c79cb15a17f3680279c4003fdc0fdc&query=" + this.find)
-                .then((result) => {                                    
-                    this.moviesTv = this.moviesTv.concat(result.data.results);      
-                });  
+            
+            axios.get("https://api.themoviedb.org/3/search/tv", {
+                params: {
+                    api_key : "14c79cb15a17f3680279c4003fdc0fdc",
+                    language : "it",
+                    query : this.find,
+                }
+            })
+            .then((result) => {                                    
+                this.moviesTv = this.moviesTv.concat(result.data.results);      
+            }); 
         },
         starVote(vote){
             return parseInt(vote / 2);

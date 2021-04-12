@@ -7,11 +7,11 @@ var app = new Vue ({
     },//chiusuradata
     methods: {
         srch() {
-            moviesTv = "",
+            this.moviesTv = [];
             axios.get("https://api.themoviedb.org/3/search/movie", {
                 params: {
                     api_key : "14c79cb15a17f3680279c4003fdc0fdc",
-                    language : "it",
+                    language : "it-IT",
                     query : this.find,
                 }
             })
@@ -22,7 +22,7 @@ var app = new Vue ({
             axios.get("https://api.themoviedb.org/3/search/tv", {
                 params: {
                     api_key : "14c79cb15a17f3680279c4003fdc0fdc",
-                    language : "it",
+                    language : "it-IT",
                     query : this.find,
                 }
             })
